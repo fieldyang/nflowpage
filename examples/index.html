@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+		<title>show</title>
+
+		<style>
+			.cls1{
+				color:blue;
+				display:block;
+				font-weight:bold;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div></div>
+	</body>
+	<script type="module">
+		import { nodom, Module,request, NPageEngine } from "../dist/npageflow.js";
+        class Module1 extends Module {
+			template() {
+				return `
+                    <div>
+                        <p>index</p>
+                        <button e-click='start'>start</button>
+                        <div key='flow' style='border:1px solid'></div>
+                    </div>
+                `;
+			}
+
+            start(){
+                request({
+                    url:'./flows/flow1.json',
+                    type:'json'
+                }).then(r=>{
+                    const el = this.getElement('flow');
+                    NPageEngine.createProcess(el,r).start();
+                })
+            }
+            
+     	}
+
+		nodom(Module1, "div");
+	</script>
+</html>
