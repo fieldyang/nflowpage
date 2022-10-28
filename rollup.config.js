@@ -30,7 +30,7 @@ export default {
 		// }
 	
 	],
-	// external:['nodom3'],
+	external:['nodom3'],
 	plugins: [
 		nodeResolve({
 			extensions: [".js", ".ts"],

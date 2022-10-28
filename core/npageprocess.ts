@@ -7,6 +7,7 @@ import { ENodeType, INode } from "./types";
 import { NExclusiveNode } from "./node/nexclusivenode";
 import { NInclusiveNode } from "./node/ninclusivenode";
 import { NParallelNode } from "./node/nparallelnode";
+import { timeStamp } from "console";
 export class NPageProcess{
     /**
      * 流程id
@@ -146,8 +147,9 @@ export class NPageProcess{
     /**
      * 结束
      */
-    end(){
-        delete this.currentNode;
+    async end(){
+        
+
         this.finished = true;
     }
 
